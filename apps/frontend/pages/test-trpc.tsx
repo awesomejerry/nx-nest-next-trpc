@@ -1,21 +1,26 @@
 import { trpc } from '../utils/trpc';
 
-export default function IndexPage({ clientName }: { clientName: string }) {
-  const hello = trpc.hello.useQuery({ text: clientName });
-  if (!hello.data) {
-    return <div>Loading...</div>;
-  }
+import { appCaller } from '../server/routers/_app';
+
+type Props = {
+  greeting: string;
+};
+
+export default function IndexPage({ greeting }: Props) {
+  const hello = trpc.hello.useQuery({ text: 'Julian' });
   return (
     <div>
-      <p>{hello.data.greeting}</p>
+      <p>{greeting}</p>
+      <p>{hello.data ? hello.data.greeting : 'loading'}</p>
     </div>
   );
 }
 
-export async function getServerSideProps(context: any) {
+export async function getServerSideProps(context) {
+  const result = await appCaller.hello({ text: 'Jerry' });
   return {
     props: {
-      clientName: 'Julian',
+      greeting: result.greeting,
     }, // will be passed to the page component as props
   };
 }
