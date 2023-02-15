@@ -8,13 +8,19 @@
     "@nestjs/common": "^9.0.0",
     "@nestjs/core": "^9.0.0",
     "@nestjs/platform-express": "^9.0.0",
+    "@tanstack/react-query": "^4.24.6",
+    "@trpc/client": "^10.11.1",
+    "@trpc/next": "^10.11.1",
+    "@trpc/react-query": "^10.11.1",
+    "@trpc/server": "^10.11.1",
     "axios": "^1.0.0",
     "next": "13.1.1",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "reflect-metadata": "^0.1.13",
     "rxjs": "^7.0.0",
-    "tslib": "^2.3.0"
+    "tslib": "^2.3.0",
+    "zod": "^3.20.6"
   },
   "devDependencies": {
     "@babel/preset-react": "^7.14.5",
