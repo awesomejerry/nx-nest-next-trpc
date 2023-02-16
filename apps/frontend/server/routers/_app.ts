@@ -1,8 +1,7 @@
 import { z } from 'zod';
 import { procedure, router } from '../trpc';
 import { createTRPCProxyClient, httpBatchLink } from '@trpc/client';
-// eslint-disable-next-line @nrwl/nx/enforce-module-boundaries
-import type { AppRouter as BackendAppRouter } from 'apps/backend/src/trpc/trpc.service';
+import type { AppRouter as BackendAppRouter } from '@healthbot-webinar/trpc';
 
 const client = createTRPCProxyClient<BackendAppRouter>({
   links: [
